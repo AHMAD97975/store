@@ -313,7 +313,6 @@ function showProductNotification(p) {
 
 function startSlider() {
   stopSlider();
-  if (totalSlides > 1) slideInterval = setInterval(nextSlide, 4000);
 }
 
 function stopSlider() {
