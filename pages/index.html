@@ -1,49 +1,94 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OurStore - متجر إلكتروني</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/styles.css">
-</head>
-<body>
-<div id="storePage" class="page active">
-<header class="header">
-<div class="logo"><span class="logo-our" id="logoOur">Our</span><span class="logo-store" id="logoStore">Store</span></div>
-<div class="nav-buttons"><a class="btn btn-secondary" href="admin.html">⚙️ لوحة التحكم</a></div>
-</header>
-<section class="hero">
-<div class="hero-content">
-<p class="eyebrow">تشكيلة مختارة بعناية</p>
-<h1>ابحث عن منتجك المفضل بلمسة واحدة</h1>
-<p>استكشف أحدث الأجهزة، الكتب، والأزياء بواجهة سريعة وبسيطة تساعدك على الوصول لما تريده فورًا.</p>
-</div>
-<div class="hero-statistics">
-<div><span>+10</span><p>منتجات مميزة</p></div>
-<div><span>24/7</span><p>متجر متاح</p></div>
-<div><span>100%</span><p>رضى المستخدمين</p></div>
-</div>
-</section>
-<div class="container">
-<div class="filters-section">
-<div class="filters-header"><div><p class="eyebrow">تصفية المنتجات</p><h3>اختر الأسلوب الذي يناسبك</h3></div><button class="btn btn-secondary ghost" onclick="filterProducts()">تحديث النتائج</button></div>
-<div class="filters-grid">
-<div class="search-box"><label for="searchInput">ابحث عن منتج</label><input type="text" id="searchInput" placeholder="ابحث عن منتج..." onkeyup="filterProducts()"></div>
-<div class="select-group"><label for="categoryFilter">الفئة</label><select id="categoryFilter" onchange="filterProducts()"><option value="all">جميع الفئات</option></select></div>
-<div class="select-group"><label for="sortOrder">ترتيب السعر</label><select id="sortOrder" onchange="filterProducts()"><option value="none">ترتيب حسب</option><option value="asc">السعر: من الأقل للأعلى</option><option value="desc">السعر: من الأعلى للأقل</option></select></div>
-</div>
-</div>
-<div class="slider-container" id="sliderContainer">
-<div class="slider" id="slider"></div>
-<button class="slider-btn prev" onclick="prevSlide()">‹</button>
-<button class="slider-btn next" onclick="nextSlide()">›</button>
-<div class="slider-dots" id="sliderDots"></div>
-</div>
-</div>
-</div>
-<script src="../js/scripts.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OurStore - متجر إلكتروني</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <div id="storePage" class="page active">
+      <header class="header">
+        <div class="logo">
+          <span class="logo-our" id="logoOur">Our</span
+          ><span class="logo-store" id="logoStore">Store</span>
+        </div>
+        <div class="nav-buttons">
+          <a class="btn btn-secondary" href="admin.html">⚙️ لوحة التحكم</a>
+        </div>
+      </header>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">تشكيلة مختارة بعناية</p>
+          <h1>ابحث عن منتجك المفضل بلمسة واحدة</h1>
+          <p>
+            استكشف أحدث الأجهزة، الكتب، والأزياء بواجهة سريعة وبسيطة تساعدك على
+            الوصول لما تريده فورًا.
+          </p>
+        </div>
+        <div class="hero-statistics">
+          <div>
+            <span>+10</span><p>منتجات مميزة</p>
+          </div>
+          <div>
+            <span>24/7</span><p>متجر متاح</p>
+          </div>
+          <div>
+            <span>100%</span><p>رضى المستخدمين</p>
+          </div>
+        </div>
+      </section>
+      <div class="container">
+        <div class="filters-section">
+          <div class="filters-header">
+            <div>
+              <p class="eyebrow">تصفية المنتجات</p>
+              <h3>اختر الأسلوب الذي يناسبك</h3>
+            </div>
+            <button class="btn btn-secondary ghost" onclick="filterProducts()">
+              تحديث النتائج
+            </button>
+          </div>
+          <div class="filters-grid">
+            <div class="search-box">
+              <label for="searchInput">ابحث عن منتج</label>
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="ابحث عن منتج..."
+                onkeyup="filterProducts()"
+              />
+            </div>
+            <div class="select-group">
+              <label for="categoryFilter">الفئة</label>
+              <select id="categoryFilter" onchange="filterProducts()">
+                <option value="all">جميع الفئات</option>
+              </select>
+            </div>
+            <div class="select-group">
+              <label for="sortOrder">ترتيب السعر</label>
+              <select id="sortOrder" onchange="filterProducts()">
+                <option value="none">ترتيب حسب</option>
+                <option value="asc">السعر: من الأقل للأعلى</option>
+                <option value="desc">السعر: من الأعلى للأقل</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="slider-container" id="sliderContainer">
+          <div class="slider" id="slider"></div>
+          <button class="slider-btn prev" onclick="prevSlide()">‹</button>
+          <button class="slider-btn next" onclick="nextSlide()">›</button>
+          <div class="slider-dots" id="sliderDots"></div>
+        </div>
+      </div>
+    </div>
+    <script src="../js/scripts.js"></script>
+  </body>
 </html>

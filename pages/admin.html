@@ -1,64 +1,132 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OurStore - لوحة التحكم</title>
-<link rel="stylesheet" href="../css/styles.css">
-</head>
-<body>
-<div id="adminPage" class="page active">
-<header class="header">
-<div class="logo"><span class="logo-our" id="logoOur">Our</span><span class="logo-store" id="logoStore">Store</span></div>
-<div class="nav-buttons">
-<a class="btn btn-primary" href="index.html">🏪 المتجر</a>
-<button class="btn btn-secondary" disabled>⚙️ لوحة التحكم</button>
-</div>
-</header>
-<div class="container">
-<div class="section-title"><span>إدارة المنتجات</span><a class="btn btn-secondary" href="index.html">← الرجوع إلى المتجر</a></div>
-<div class="admin-layout">
-<div class="forms-section">
-<div class="admin-form store-settings-form admin-section">
-<h3 class="form-title">إعدادات المتجر</h3>
-<div class="form-group"><label for="storeName">اسم المتجر</label><input type="text" id="storeName" placeholder="اكتب اسم المتجر" onchange="updateStoreName()"><small class="muted">سيتم تحديث اسم المتجر في جميع الصفحات</small></div>
-<button class="btn btn-secondary" onclick="restoreDefaults()">استعادة الافتراضيات</button>
-</div>
-<div class="admin-form product-form admin-section" id="productForm">
-<h3 class="form-title" id="formTitle">إضافة / تعديل المنتج</h3>
-<div class="form-group"><label for="productName">اسم المنتج</label><input type="text" id="productName" placeholder="اسم المنتج"></div>
-<div class="form-group"><label for="productPrice">السعر</label><input type="number" id="productPrice" step="0.01" placeholder="السعر"></div>
-<div class="form-group"><label for="productCategory">الفئة</label><input type="text" id="productCategory" placeholder="الفئة"></div>
-<div class="form-group"><label for="productImage">رابط الصورة</label><input type="url" id="productImage" placeholder="رابط الصورة (اختياري)"></div>
-<div class="form-group"><label for="productImageFile">تحميل صورة من الجهاز</label><input type="file" id="productImageFile" accept="image/*"></div>
-<div class="form-actions">
-<button class="btn btn-success" onclick="saveProduct()">➕ حفظ المنتج</button>
-<button class="btn btn-secondary" onclick="resetForm()" id="resetBtn" style="display:none;">إلغاء</button>
-</div>
-</div>
-</div>
-</div>
-<div class="products-section admin-section">
-<div class="products-table-container">
-<div class="table-header"><h3 class="table-title">قائمة المنتجات</h3></div>
-<div class="table-scroll">
-<table>
-<thead>
-<tr>
-<th>الاسم</th>
-<th>السعر</th>
-<th>الفئة</th>
-<th>الصورة</th>
-<th style="text-align:center;">الإجراءات</th>
-</tr>
-</thead>
-<tbody id="productsTableBody"></tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-<script src="../js/scripts.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OurStore - لوحة التحكم</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <div id="adminPage" class="page active">
+      <header class="header">
+        <div class="logo">
+          <span class="logo-our" id="logoOur">Our</span
+          ><span class="logo-store" id="logoStore">Store</span>
+        </div>
+        <div class="nav-buttons">
+          <a class="btn btn-primary" href="index.html">🏪 المتجر</a>
+          <button class="btn btn-secondary" disabled>⚙️ لوحة التحكم</button>
+        </div>
+      </header>
+      <div class="container">
+        <div class="section-title">
+          <span>إدارة المنتجات</span>
+          <a class="btn btn-secondary" href="index.html">← الرجوع إلى المتجر</a>
+        </div>
+        <div class="admin-layout">
+          <div class="forms-section">
+            <div class="admin-form store-settings-form admin-section">
+              <h3 class="form-title">إعدادات المتجر</h3>
+              <div class="form-group">
+                <label for="storeName">اسم المتجر</label>
+                <input
+                  type="text"
+                  id="storeName"
+                  placeholder="اكتب اسم المتجر"
+                  onchange="updateStoreName()"
+                />
+                <small class="muted"
+                  >سيتم تحديث اسم المتجر في جميع الصفحات</small
+                >
+              </div>
+              <button class="btn btn-secondary" onclick="restoreDefaults()">
+                استعادة الافتراضيات
+              </button>
+            </div>
+            <div class="admin-form product-form admin-section" id="productForm">
+              <h3 class="form-title" id="formTitle">
+                إضافة / تعديل المنتج
+              </h3>
+              <div class="form-group">
+                <label for="productName">اسم المنتج</label>
+                <input
+                  type="text"
+                  id="productName"
+                  placeholder="اسم المنتج"
+                />
+              </div>
+              <div class="form-group">
+                <label for="productPrice">السعر</label>
+                <input
+                  type="number"
+                  id="productPrice"
+                  step="0.01"
+                  placeholder="السعر"
+                />
+              </div>
+              <div class="form-group">
+                <label for="productCategory">الفئة</label>
+                <input
+                  type="text"
+                  id="productCategory"
+                  placeholder="الفئة"
+                />
+              </div>
+              <div class="form-group">
+                <label for="productImage">رابط الصورة</label>
+                <input
+                  type="url"
+                  id="productImage"
+                  placeholder="رابط الصورة (اختياري)"
+                />
+              </div>
+              <div class="form-group">
+                <label for="productImageFile">تحميل صورة من الجهاز</label>
+                <input
+                  type="file"
+                  id="productImageFile"
+                  accept="image/*"
+                />
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-success" onclick="saveProduct()">
+                  ➕ حفظ المنتج
+                </button>
+                <button
+                  class="btn btn-secondary"
+                  onclick="resetForm()"
+                  id="resetBtn"
+                  style="display: none"
+                >
+                  إلغاء
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="products-section admin-section">
+          <div class="products-table-container">
+            <div class="table-header">
+              <h3 class="table-title">قائمة المنتجات</h3>
+            </div>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>الاسم</th>
+                    <th>السعر</th>
+                    <th>الفئة</th>
+                    <th>الصورة</th>
+                    <th style="text-align: center">الإجراءات</th>
+                  </tr>
+                </thead>
+                <tbody id="productsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../js/scripts.js"></script>
+  </body>
 </html>
